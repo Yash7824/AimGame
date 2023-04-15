@@ -1,0 +1,30 @@
+<div class="play--container">
+  <div class="progress--container">
+    <div class="score--container">
+      <p>Score: {{ clickedTimes }}</p>
+      <p>Accuracy: {{ accuracy | percent }}</p>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      value="{{ clickedTimes }}"
+    ></mat-progress-bar>
+
+    <div class="timer">
+      <p>Time Left: {{ timeLeft }}</p>
+    </div>
+  </div>
+
+  <div
+    [hidden]="!toggleDisplay"
+    class="sphere"
+    (click)="teleport()"
+    [ngStyle]="itemTp"
+    appClickedOutside
+    (clickedOutside)="missClicks()"
+  ></div>
+
+  <div id="Middle-Start--Menu" [hidden]="toggleDisplay">
+    <button mat-raised-button color="warn" (click)="startTimer()">Start</button>
+  </div>
+</div>

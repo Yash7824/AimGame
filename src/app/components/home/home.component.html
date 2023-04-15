@@ -1,0 +1,101 @@
+<mat-drawer-container class="Home--Container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <h2>AimGame</h2>
+
+    <div>
+      <button class="btn btn-outline-dark my-2">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="home"
+          class="matIcon"
+        ></mat-icon>
+        Home
+      </button>
+    </div>
+
+    <div>
+      <button class="btn btn-outline-dark my-2" routerLink="play">
+        <mat-icon>play_circle_filled</mat-icon>
+        Play
+      </button>
+    </div>
+
+    <div>
+      <button class="btn btn-outline-dark my-2">
+        <mat-icon class="matIcon"> beenhere</mat-icon>
+        Train
+      </button>
+    </div>
+
+    <div>
+      <button class="btn btn-outline-dark my-2">
+        <mat-icon class="matIcon"> school</mat-icon>
+        Learn
+      </button>
+    </div>
+
+    <div>
+      <button class="btn btn-outline-dark my-2">
+        <mat-icon class="matIcon">group</mat-icon>
+        Community
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div class="topNav">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" routerLink="#">Play for Free</a>
+        <div class="collapse navbar-collapse Login" id="navbarSupportedContent">
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Login"
+            />
+            <button class="btn btn-outline-dark" type="submit">Login</button>
+            <button class="btn btn-danger mx-2" type="submit">SignUp</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <div class="Cards--Container">
+    <div class="card" style="width: 18rem" *ngFor="let card of cardsArray">
+      <img
+        src="{{ card.imageUrl }}"
+        class="card-img-top"
+        style="height: 161.1px"
+      />
+      <div class="card-body CardBody">
+        <h2 class="card-title">{{ card.name }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="ScoreBoard" *ngIf="clickedTimes">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h2 class="card-title">Result</h2>
+          <p class="card-text">Score: {{ clickedTimes }}</p>
+          <p class="card-text">Accuracy: {{ accuracy | percent }}</p>
+        </div>
+
+        <div class="Buttons--Cards">
+          <button mat-raised-button color="primary">Rank</button>
+          <button mat-raised-button color="accent">Statistics</button>
+          <button mat-raised-button color="warn">Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-drawer-container>
