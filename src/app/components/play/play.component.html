@@ -20,8 +20,9 @@
     </div>
   </div>
 
-  <div class="Play--Area" [hidden]="!toggleDisplay">
+  <div class="Play--Area">
     <div
+      [hidden]="!toggleDisplay"
       class="sphere"
       (click)="teleport()"
       [ngStyle]="itemTp"

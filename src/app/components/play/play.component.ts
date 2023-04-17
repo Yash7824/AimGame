@@ -42,7 +42,7 @@ export class PlayComponent {
   missclicks: number = -1;
   accuracy: number = 1;
 
-  timeLeft: number = 5;
+  timeLeft: number = 60;
   interval: any;
   stop: boolean = false;
 
