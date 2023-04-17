@@ -13,7 +13,7 @@ export class PlayComponent {
 
   coordinates: Coordinates[] = [
     { marginLeft: '10px', marginTop: '10px' },
-    { marginLeft: '298px', marginTop: '567px' },
+    { marginLeft: '298px', marginTop: '450px' },
     { marginLeft: '345px', marginTop: '90px' },
     { marginLeft: '463px', marginTop: '82px' },
     { marginLeft: '33px', marginTop: '9px' },
@@ -22,16 +22,16 @@ export class PlayComponent {
     { marginLeft: '21px', marginTop: '109px' },
     { marginLeft: '123px', marginTop: '82px' },
     { marginLeft: '90px', marginTop: '178px' },
-    { marginLeft: '9px', marginTop: '567px' },
-    { marginLeft: '1023px', marginTop: '567px' },
-    { marginLeft: '867px', marginTop: '10' },
-    { marginLeft: '934px', marginTop: '496px' },
-    { marginLeft: '666px', marginTop: '500px' },
+    { marginLeft: '9px', marginTop: '320px' },
+    { marginLeft: '1023px', marginTop: '190px' },
+    { marginLeft: '867px', marginTop: '10px' },
+    { marginLeft: '934px', marginTop: '90px' },
+    { marginLeft: '666px', marginTop: '220px' },
     { marginLeft: '546px', marginTop: '18px' },
-    { marginLeft: '345px', marginTop: '567px' },
+    { marginLeft: '345px', marginTop: '123px' },
     { marginLeft: '1067px', marginTop: '210px' },
-    { marginLeft: '1234px', marginTop: '456px' },
-    { marginLeft: '980px', marginTop: '500px' },
+    { marginLeft: '1120px', marginTop: '434px' },
+    { marginLeft: '980px', marginTop: '449px' },
     { marginLeft: '876px', marginTop: '432px' },
     { marginLeft: '632px', marginTop: '21px' },
   ];
@@ -42,7 +42,7 @@ export class PlayComponent {
   missclicks: number = -1;
   accuracy: number = 1;
 
-  timeLeft: number = 10;
+  timeLeft: number = 5;
   interval: any;
   stop: boolean = false;
 
@@ -66,6 +66,7 @@ export class PlayComponent {
     if (this.stop == true) {
       this.route.navigateByUrl('/');
     }
+    this.playService.toggleFilter = this.playService.blur;
   }
 
   teleport() {

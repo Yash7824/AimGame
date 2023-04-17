@@ -1,5 +1,5 @@
-<mat-drawer-container class="Home--Container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+<mat-drawer-container class="Home--Container" [ngStyle]="ToggleFilter" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened="true">
     <h2>AimGame</h2>
 
     <div>
@@ -81,7 +81,7 @@
     </div>
   </div>
 
-  <div>
+  <!-- <div>
     <div class="ScoreBoard" *ngIf="clickedTimes">
       <div class="card" style="width: 18rem">
         <div class="card-body">
@@ -97,5 +97,23 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </mat-drawer-container>
+
+<!-- result -->
+
+<div class="Result--Container" *ngIf="clickedTimes">
+  <div class="card" style="width: 18rem">
+    <div class="card-body result--card">
+      <h2 class="card-title">Result</h2>
+      <p class="card-text">Score: {{ clickedTimes }}</p>
+      <p class="card-text">Accuracy: {{ accuracy | percent }}</p>
+    </div>
+
+    <div class="Buttons--Cards">
+      <button mat-raised-button color="primary" (click)="GoHome()">Home</button>
+      <button mat-raised-button color="accent">Statistics</button>
+      <button mat-raised-button color="warn">Dashboard</button>
+    </div>
+  </div>
+</div>

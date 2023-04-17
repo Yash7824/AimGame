@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlayService } from 'src/app/services/play.service';
 
 @Component({
@@ -7,7 +8,9 @@ import { PlayService } from 'src/app/services/play.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  constructor(private playService: PlayService) {}
+  constructor(private playService: PlayService, private route: Router) {}
+
+  ToggleFilter = this.playService.toggleFilter;
 
   clickedTimes: number = this.playService.clickedTimes;
   accuracy: number = this.playService.accuracy;
@@ -51,4 +54,9 @@ export class HomeComponent {
       name: 'Doom Eternal',
     },
   ];
+
+  GoHome() {
+    this.ToggleFilter = this.playService.notBlur;
+    this.clickedTimes = 0;
+  }
 }

@@ -1,8 +1,13 @@
 <div class="play--container">
   <div class="progress--container">
     <div class="score--container">
-      <p>Score: {{ clickedTimes }}</p>
-      <p>Accuracy: {{ accuracy | percent }}</p>
+      <h2>Score: {{ clickedTimes }}</h2>
+      <div id="Middle-Start--Menu" [hidden]="toggleDisplay">
+        <button mat-raised-button color="warn" (click)="startTimer()">
+          Start
+        </button>
+      </div>
+      <h2 id="Accuracy">Accuracy: {{ accuracy | percent }}</h2>
     </div>
 
     <mat-progress-bar
@@ -11,20 +16,17 @@
     ></mat-progress-bar>
 
     <div class="timer">
-      <p>Time Left: {{ timeLeft }}</p>
+      <h2>Time Left: {{ timeLeft }}</h2>
     </div>
   </div>
 
-  <div
-    [hidden]="!toggleDisplay"
-    class="sphere"
-    (click)="teleport()"
-    [ngStyle]="itemTp"
-    appClickedOutside
-    (clickedOutside)="missClicks()"
-  ></div>
-
-  <div id="Middle-Start--Menu" [hidden]="toggleDisplay">
-    <button mat-raised-button color="warn" (click)="startTimer()">Start</button>
+  <div class="Play--Area" [hidden]="!toggleDisplay">
+    <div
+      class="sphere"
+      (click)="teleport()"
+      [ngStyle]="itemTp"
+      appClickedOutside
+      (clickedOutside)="missClicks()"
+    ></div>
   </div>
 </div>
